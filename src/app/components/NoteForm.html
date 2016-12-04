@@ -1,0 +1,19 @@
+<h1>{{$ctrl.isEdit ? 'EDIT_NOTE' : 'ADD_NOTE' | translate}}</h1>
+<form name="noteForm">
+  <label>{{'NOTE' | translate}}
+    <textarea
+      name="title"
+      ng-model="$ctrl.note.title"
+      required></textarea>
+  </label>
+  <div>
+    <button
+      ng-disabled="noteForm.$invalid"
+      ng-click="$ctrl.saveNote()">{{($ctrl.isEdit ? 'SAVE' : 'ADD') | translate}}
+    </button>
+    <button
+      translate="CANCEL"
+      ng-click="$ctrl.goToList()"></button>
+  </div>
+</form>
+<div ng-show="$ctrl.isLoading">Loading...</div>

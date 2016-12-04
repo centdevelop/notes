@@ -1,0 +1,8 @@
+<header class="header">
+  <label>{{'LANGUAGE' | translate}}
+    <select
+      ng-model="$ctrl.languageModel.selected"
+      ng-options="key as value | translate for (key, value) in $ctrl.availableLanguages"
+      ng-change="$ctrl.changeLanguage($ctrl.languageModel.selected)"></select>
+  </label>
+</header>

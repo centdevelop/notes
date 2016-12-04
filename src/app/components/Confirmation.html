@@ -1,0 +1,13 @@
+<div ng-show="$ctrl.isVisible">
+  <div>
+    <h3>{{$ctrl.title | translate}}</h3>
+    <div>
+      <button
+        translate="CONFIRM"
+        ng-click="$ctrl.onConfirm()"></button>
+      <button
+        translate="CANCEL"
+        ng-click="$ctrl.close()"></button>
+    </div>
+  </div>
+</div>
