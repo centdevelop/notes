@@ -14,9 +14,7 @@ function clean() {
 }
 
 function other() {
-  const fileFilter = filter(file = > file.stat.isFile()
-)
-  ;
+  const fileFilter = filter(file => file.stat.isFile());
 
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),

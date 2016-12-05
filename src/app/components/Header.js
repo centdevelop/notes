@@ -4,7 +4,8 @@ angular
     templateUrl: 'app/components/Header.html',
     controller: Header,
     bindings: {
-      notes: '<'
+      availableLanguages: '<',
+      languageModel: '<'
     }
   });
 
