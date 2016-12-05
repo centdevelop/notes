@@ -1,18 +1,22 @@
-angular
-  .module('app')
-  .component('noteItem', {
-    templateUrl: 'app/components/NoteItem.html',
-    controller: Item,
-    bindings: {
-      note: '<',
-      onRemove: '&'
-    }
-  });
+(function () {
+  'use strict';
 
-function Item($state) {
-  var $ctrl = this;
+  angular
+    .module('app')
+    .component('noteItem', {
+      templateUrl: 'app/components/NoteItem.html',
+      controller: Item,
+      bindings: {
+        note: '<',
+        onRemove: '&'
+      }
+    });
 
-  $ctrl.goToEditNote = function (note) {
-    $state.go('editNote', {noteId: note.id});
-  };
-}
+  function Item($state) {
+    var $ctrl = this;
+
+    $ctrl.goToEditNote = function (note) {
+      $state.go('editNote', {noteId: note.id});
+    };
+  }
+})();

@@ -1,27 +1,31 @@
-angular
-  .module('app')
-  .config(routesConfig);
+(function () {
+  'use strict';
 
-/** @ngInject */
-function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/');
+  angular
+    .module('app')
+    .config(routesConfig);
 
-  $stateProvider
-    .state('noteList', {
-      url: '/',
-      component: 'noteList'
-    });
+  /** @ngInject */
+  function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true).hashPrefix('!');
+    $urlRouterProvider.otherwise('/');
 
-  $stateProvider
-    .state('addNote', {
-      url: '/!/add',
-      component: 'noteForm'
-    });
+    $stateProvider
+      .state('noteList', {
+        url: '/',
+        component: 'noteList'
+      });
 
-  $stateProvider
-    .state('editNote', {
-      url: '/!/:noteId/edit',
-      component: 'noteForm'
-    });
-}
+    $stateProvider
+      .state('addNote', {
+        url: '/!/add',
+        component: 'noteForm'
+      });
+
+    $stateProvider
+      .state('editNote', {
+        url: '/!/:noteId/edit',
+        component: 'noteForm'
+      });
+  }
+})();

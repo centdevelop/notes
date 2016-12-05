@@ -1,19 +1,23 @@
-angular
-  .module('app')
-  .component('confirmWin', {
-    templateUrl: 'app/components/Confirmation.html',
-    controller: Confirmation,
-    bindings: {
-      title: '<',
-      isVisible: '=',
-      onConfirm: '&'
-    }
-  });
+(function () {
+  'use strict';
 
-function Confirmation() {
-  var $ctrl = this;
+  angular
+    .module('app')
+    .component('confirmWin', {
+      templateUrl: 'app/components/Confirmation.html',
+      controller: Confirmation,
+      bindings: {
+        title: '<',
+        isVisible: '=',
+        onConfirm: '&'
+      }
+    });
 
-  $ctrl.close = function () {
-    $ctrl.isVisible = false;
-  };
-}
+  function Confirmation() {
+    var $ctrl = this;
+
+    $ctrl.close = function () {
+      $ctrl.isVisible = false;
+    };
+  }
+})();

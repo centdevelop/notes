@@ -27,21 +27,17 @@ function build() {
   const jsFilter = filter(conf.path.tmp('**/*.js'), {restore: true});
   const cssFilter = filter(conf.path.tmp('**/*.css'), {restore: true});
 
-  return gulp.src(conf.path.tmp('/index.html'))
+  return gulp.src(conf.path.tmp('/index.html'), {base: '.tmp'})
     .pipe(inject(partialsInjectFile, partialsInjectOptions))
     .pipe(useref())
     .pipe(jsFilter)
-    .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
     .pipe(uglify({preserveComments: uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
     .pipe(rev())
-    .pipe(sourcemaps.write('maps'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
-    .pipe(sourcemaps.init())
     .pipe(cssnano())
     .pipe(rev())
-    .pipe(sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
     .pipe(revReplace())
     .pipe(htmlFilter)
