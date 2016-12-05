@@ -1,5 +1,6 @@
 <h1 translate="NOTES_LIST"></h1>
 <button
+  class="btn btn-action"
   translate="ADD_NOTE"
   ng-click="$ctrl.goToAddNote()"></button>
 <ul>
@@ -12,4 +13,4 @@
   title="$ctrl.confirmWindow.title"
   is-visible="$ctrl.confirmWindow.isVisible"
   on-confirm="$ctrl.confirmWindow.confirmAction()"></confirm-win>
-<div ng-show="$ctrl.isLoading">Loading...</div>
+<div class="spinner" ng-show="$ctrl.isLoading"></div>

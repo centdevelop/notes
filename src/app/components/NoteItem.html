@@ -1,5 +1,9 @@
 <li>
   {{$ctrl.note.title}}
-  <button ng-click="$ctrl.goToEditNote($ctrl.note)">{{ 'EDIT' | translate }}</button>
-  <button ng-click="$ctrl.onRemove()">{{ 'REMOVE' | translate }}</button>
+  <button
+    class="icon icon-edit"
+    ng-click="$ctrl.goToEditNote($ctrl.note)"></button>
+  <button
+    class="icon icon-remove"
+    ng-click="$ctrl.onRemove()"></button>
 </li>

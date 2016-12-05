@@ -1,11 +1,13 @@
-<div ng-show="$ctrl.isVisible">
-  <div>
-    <h3>{{$ctrl.title | translate}}</h3>
-    <div>
+<div class="modal-overlay" ng-show="$ctrl.isVisible">
+  <div class="modal-dialog">
+    <h3 class="modal-title">{{$ctrl.title | translate}}</h3>
+    <div class="modal-buttons">
       <button
+        class="btn btn-action"
         translate="CONFIRM"
         ng-click="$ctrl.onConfirm()"></button>
       <button
+        class="btn btn-link"
         translate="CANCEL"
         ng-click="$ctrl.close()"></button>
     </div>

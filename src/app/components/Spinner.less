@@ -1,0 +1,28 @@
+@spinner-width: 250px;
+@spinner-height: 10px;
+
+.spinner{
+  width:@spinner-width;
+  height:@spinner-height;
+  background-color:#337ab7;
+  border-radius:10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -5px;
+  animation-name:bounce_loadingProgressG;
+  animation-duration:1.5s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@keyframes bounce_loadingProgressG{
+  0%{
+    width: 0;
+  }
+
+  100%{
+    width: @spinner-width;
+  }
+}
