@@ -4,7 +4,7 @@
   angular
     .module('app')
     .component('noteList', {
-      templateUrl: 'app/components/NoteList.html',
+      templateUrl: 'app/components/notelist/NoteList.html',
       controller: List,
       bindings: {
         notes: '<',

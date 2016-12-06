@@ -4,7 +4,7 @@
   angular
     .module('app')
     .component('noteForm', {
-      templateUrl: 'app/components/NoteForm.html',
+      templateUrl: 'app/components/noteform/NoteForm.html',
       controller: Form,
       bindings: {
         note: '=',

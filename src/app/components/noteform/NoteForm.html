@@ -1,0 +1,34 @@
+<h1 class="page-title">
+  <span
+    class="title-txt">{{$ctrl.isEdit ? 'EDIT_NOTE' : 'ADD_NOTE' | translate}}</span>
+</h1>
+<form
+  class="form"
+  name="noteForm">
+  <label>
+    <span
+      class="label"
+      translate="NOTE"></span>
+    <textarea
+      class="textarea"
+      name="title"
+      ng-model="$ctrl.note.title"
+      required></textarea>
+  </label>
+  <div class="buttons">
+    <button
+      class="btn btn-action"
+      ng-disabled="noteForm.$invalid"
+      ng-click="$ctrl.saveNote()">{{($ctrl.isEdit ? 'SAVE' : 'ADD') | translate}}
+    </button>
+    <button
+      class="btn btn-plain"
+      translate="CANCEL"
+      ng-click="$ctrl.goToList()"></button>
+  </div>
+</form>
+<div
+  class="modal-overlay"
+  ng-show="$ctrl.isLoading">
+  <div class="spinner"></div>
+</div>

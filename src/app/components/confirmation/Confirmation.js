@@ -4,7 +4,7 @@
   angular
     .module('app')
     .component('confirmWin', {
-      templateUrl: 'app/components/Confirmation.html',
+      templateUrl: 'app/components/confirmation/Confirmation.html',
       controller: Confirmation,
       bindings: {
         title: '<',

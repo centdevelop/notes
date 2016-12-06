@@ -4,7 +4,7 @@
   angular
     .module('app')
     .component('headerComponent', {
-      templateUrl: 'app/components/Header.html',
+      templateUrl: 'app/components/header/Header.html',
       controller: Header,
       bindings: {
         availableLanguages: '<',

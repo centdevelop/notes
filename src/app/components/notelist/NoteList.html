@@ -1,0 +1,27 @@
+<div class="note-list">
+  <h1 class="page-title">
+    <span
+      class="title-txt"
+      translate="NOTES_LIST"></span>
+    <span class="title-tools">
+       <button
+         class="icon icon-add"
+         ng-click="$ctrl.goToAddNote()"></button>
+    </span>
+  </h1>
+  <ul class="list">
+    <note-item
+      ng-repeat="note in $ctrl.notes"
+      note="note"
+      on-remove="$ctrl.handleRemove(note)"></note-item>
+  </ul>
+  <confirm-win
+    title="$ctrl.confirmWindow.title"
+    is-visible="$ctrl.confirmWindow.isVisible"
+    on-confirm="$ctrl.confirmWindow.confirmAction()"></confirm-win>
+  <div
+    class="modal-overlay"
+    ng-show="$ctrl.isLoading">
+    <div class="spinner"></div>
+  </div>
+</div>

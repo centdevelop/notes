@@ -12,7 +12,6 @@ function partials() {
     .pipe(angularTemplatecache('templateCacheHtml.js', {
       module: conf.ngModule,
       transformUrl: function(url) {
-        console.log(url);
         return url.replace(/src\\/, '')
       }
     }))
