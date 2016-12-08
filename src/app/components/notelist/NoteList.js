@@ -16,6 +16,25 @@
   function List(Notes, $state) {
     var $ctrl = this;
 
+    $ctrl.confirmWindow = {
+      isVisible: false,
+      title: 'REMOVE_CONFIRMATION_MESSAGE'
+    };
+    $ctrl.goToAddNote = goToAddNote;
+    $ctrl.handleRemove = handleRemove;
+    $ctrl.isLoading = true;
+
+    Notes.query(onLoad);
+
+    function goToAddNote() {
+      $state.go('addNote');
+    }
+
+    function handleRemove(note) {
+      $ctrl.confirmWindow.isVisible = true;
+      $ctrl.confirmWindow.confirmAction = angular.bind($ctrl, confirmAction, note);
+    }
+
     function onLoad(notes) {
       $ctrl.notes = notes;
       $ctrl.isLoading = false;
@@ -30,22 +49,5 @@
       $ctrl.isLoading = true;
       note.$remove(onRemoveNote);
     }
-
-    $ctrl.confirmWindow = {
-      isVisible: false,
-      title: 'REMOVE_CONFIRMATION_MESSAGE'
-    };
-
-    $ctrl.goToAddNote = function () {
-      $state.go('addNote');
-    };
-
-    $ctrl.handleRemove = function (note) {
-      $ctrl.confirmWindow.isVisible = true;
-      $ctrl.confirmWindow.confirmAction = angular.bind($ctrl, confirmAction, note);
-    };
-
-    $ctrl.isLoading = true;
-    Notes.query(onLoad);
   }
 })();

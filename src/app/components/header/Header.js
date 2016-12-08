@@ -20,9 +20,10 @@
       ru: 'RUSSIAN'
     };
     $ctrl.languageModel = {selected: 'en'};
+    $ctrl.changeLanguage = changeLanguage;
 
-    $ctrl.changeLanguage = function (key) {
+    function changeLanguage(key) {
       $translate.use(key);
-    };
+    }
   }
 })();

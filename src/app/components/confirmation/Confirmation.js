@@ -16,8 +16,10 @@
   function Confirmation() {
     var $ctrl = this;
 
-    $ctrl.close = function () {
+    $ctrl.close = close;
+
+    function close() {
       $ctrl.isVisible = false;
-    };
+    }
   }
 })();

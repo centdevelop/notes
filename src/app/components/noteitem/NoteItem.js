@@ -15,8 +15,10 @@
   function Item($state) {
     var $ctrl = this;
 
-    $ctrl.goToEditNote = function (note) {
+    $ctrl.goToEditNote = goToEditNote;
+
+    function goToEditNote(note) {
       $state.go('editNote', {noteId: note.id});
-    };
+    }
   }
 })();

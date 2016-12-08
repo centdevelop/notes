@@ -17,26 +17,30 @@
     var $ctrl = this;
 
     $ctrl.isEdit = $stateParams.noteId > -1;
+    $ctrl.saveNote = saveNote;
+    $ctrl.goToList = goToList;
 
     if ($ctrl.isEdit) {
       $ctrl.isLoading = true;
-      Notes.get({noteId: $stateParams.noteId}, function (note) {
-        $ctrl.note = note;
-        $ctrl.isLoading = false;
-      });
+      Notes.get({noteId: $stateParams.noteId}, onNoteLoad);
     } else {
       $ctrl.note = new Notes();
       $ctrl.isLoading = false;
     }
 
-    $ctrl.saveNote = function () {
+    function onNoteLoad(note) {
+      $ctrl.note = note;
+      $ctrl.isLoading = false;
+    }
+
+    function goToList() {
+      $state.go('noteList');
+    }
+
+    function saveNote() {
       $ctrl.note[$ctrl.isEdit ? '$update' : '$save'](function () {
         $ctrl.goToList();
       });
-    };
-
-    $ctrl.goToList = function () {
-      $state.go('noteList');
-    };
+    }
   }
 })();
